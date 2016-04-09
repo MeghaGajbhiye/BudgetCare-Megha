@@ -31,7 +31,7 @@ public class BudgetCareHome extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_budget_care_home);
         inBut= (Button) findViewById(R.id.bIncome);
-        outBut= (Button) findViewById(R.id.bExpense);
+       outBut= (Button) findViewById(R.id.bExpense);
         settingsButton = (ImageButton) findViewById(R.id.settingsButton);
         viewStatButton = (ImageButton) findViewById(R.id.chartsButton);
         viewOverviewButton = (ImageButton) findViewById(R.id.overviewButton);
@@ -46,13 +46,13 @@ public class BudgetCareHome extends ActionBarActivity {
 
     public void income(View v){
         Intent i;
-        i=new Intent(BudgetCareHome.this,CashIn.class);
+        i=new Intent(BudgetCareHome.this,Earnings.class);
         startActivity(i);
     }
 
     public void expenditure(View v) {
         Intent i;
-        i = new Intent(BudgetCareHome.this, CashOut.class);
+        i = new Intent(BudgetCareHome.this, Expenses.class);
         startActivity(i);
     }
 
@@ -113,7 +113,7 @@ public class BudgetCareHome extends ActionBarActivity {
 
         // for loop to calculate balance amount
         for (int i = 0; i < length; i++) {
-            if(transactionList.get(i).getIncomeorexpense().equalsIgnoreCase("income")){
+            if(transactionList.get(i).getIncomeorexpense().equalsIgnoreCase("Earnings")){
                 balanceAmount+=transactionList.get(i).getAmount();
             }
             else if(transactionList.get(i).getIncomeorexpense().equalsIgnoreCase("expense")){

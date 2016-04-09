@@ -29,7 +29,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TABLE_BUDGET = "budget";
     public static final String COLUMN_YEAR = "year";
     public static final String COLUMN_MONTH = "month";
-    public static final String COLUMN_BUDGET_INCOME = "income";
+    public static final String COLUMN_BUDGET_INCOME = "Earnings";
     public static final String COLUMN_BUDGET_EXPENSE = "expense";
 
 

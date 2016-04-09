@@ -22,7 +22,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 
-public class CashIn extends FragmentActivity {
+public class Earnings extends FragmentActivity {
     Date curDate = new Date();
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     String DateToStr = format.format(curDate);
@@ -38,7 +38,7 @@ public class CashIn extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cash_in);
+        setContentView(R.layout.activity_earnings);
 
 
         editDate = (EditText) findViewById(R.id.date);
@@ -56,7 +56,7 @@ public class CashIn extends FragmentActivity {
     //Method to show a new intent when a button is pressed
     public void showAddCategory(View v){
         Intent i;
-        i=new Intent(CashIn.this,AddCategory.class);
+        i=new Intent(Earnings.this,AddCategory.class);
         startActivity(i);
     }
 
@@ -108,19 +108,19 @@ public class CashIn extends FragmentActivity {
             float amount = Float.valueOf(amountText.getText().toString());
             Editable notes = noteText.getText();
             if(amount<=0){
-                Toast.makeText(CashIn.this, "Please enter the amount", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Earnings.this, "Please enter the amount", Toast.LENGTH_SHORT).show();
             }else {
                 // add the transaction to database
-                Transaction createdTransaction = transactionDA.createTransaction(date.toString(), "income", category, amount, notes.toString());
-                Toast.makeText(CashIn.this, "Successfully Saved", Toast.LENGTH_SHORT).show();
+                Transaction createdTransaction = transactionDA.createTransaction(date.toString(), "Earnings", category, amount, notes.toString());
+                Toast.makeText(Earnings.this, "Successfully Saved", Toast.LENGTH_SHORT).show();
                 transactionDA.close();
                 Intent i;
-                i=new Intent(CashIn.this,BudgetCareHome.class);
+                i=new Intent(Earnings.this,BudgetCareHome.class);
                 startActivity(i);
             }
 
        }catch(Exception ex){
-            Toast.makeText(CashIn.this, "Error while saving.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Earnings.this, "Error while saving.", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -129,12 +129,12 @@ public class CashIn extends FragmentActivity {
         float amount=0;
         amount = Float.valueOf(amountText.getText().toString());
         if(amount<=0){
-            Toast.makeText(CashIn.this, "Please enter the amount", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Earnings.this, "Please enter the amount", Toast.LENGTH_SHORT).show();
         }
         else {
-            Toast.makeText(CashIn.this, "Successfully Saved", Toast.LENGTH_LONG).show();
+            Toast.makeText(Earnings.this, "Successfully Saved", Toast.LENGTH_LONG).show();
             Intent i;
-            i=new Intent(CashIn.this,BudgetCareHome.class);
+            i=new Intent(Earnings.this,BudgetCareHome.class);
             startActivity(i);
         }
     }

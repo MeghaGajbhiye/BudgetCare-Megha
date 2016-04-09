@@ -1,31 +1,31 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".BudgetCareHome"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:id="@+id/layout1"
     android:nestedScrollingEnabled="false"
     android:background="#ffffffff">
 
     <TableLayout
         android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/tablayout"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
+        android:id="@+id/tablayout">
 
         <ImageView
             android:id="@+id/logo"
             android:layout_width="323dp"
             android:layout_height="114dp"
-            android:src="@drawable/logo2"
             android:layout_above="@+id/bIncome"
             android:layout_alignRight="@+id/bExpense"
-            android:layout_alignEnd="@+id/bExpense" />
+            android:layout_alignEnd="@+id/bExpense"
+            android:src="@drawable/logo2"/>
 
         <TableRow
             android:layout_width="match_parent"
@@ -35,7 +35,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="INCOME"
+            android:text="EARNINGS"
             android:id="@+id/bIncome"
             android:textSize="@dimen/abc_action_button_min_width_overflow_material"
             android:background="#25cabf"

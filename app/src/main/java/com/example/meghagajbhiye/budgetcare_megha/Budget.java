@@ -69,7 +69,7 @@ public class Budget extends ActionBarActivity {
             float exp = Float.valueOf(income.getText().toString());
 
             if(inc<=0 || exp<=0 ){
-                Toast.makeText(Budget.this, "Please enter your budgeted income and expense", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Budget.this, "Please enter your budgeted Earnings and expense", Toast.LENGTH_SHORT).show();
             }else {
                 // add the budget information to  to database
                 BudgetB setBudget = budgetDA.saveBudgetInfo(year, month, inc, exp);
