@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class Budget extends ActionBarActivity {
     private Spinner year;
     private Spinner month;
-    private EditText earnings;
+
     private EditText expense;
     private Button saveBtn;
     private BudgetDA budgetDA;
@@ -27,7 +27,6 @@ public class Budget extends ActionBarActivity {
         setContentView(R.layout.activity_budget);
         year = (Spinner) findViewById(R.id.year);
         month = (Spinner) findViewById(R.id.month);
-        earnings =(EditText) findViewById(R.id.income);
         expense = (EditText) findViewById(R.id.expense);
         saveBtn = (Button) findViewById(R.id.setBudget);
 
@@ -65,14 +64,13 @@ public class Budget extends ActionBarActivity {
         try {
             int year = Integer.valueOf((String) this.year.getSelectedItem());
             String month = (String) this.month.getSelectedItem();
-            float inc = Float.valueOf(earnings.getText().toString());
-            float exp = Float.valueOf(earnings.getText().toString());
+            float exp = Float.valueOf(expense.getText().toString());
 
-            if(inc<=0 || exp<=0 ){
+            if(exp<=0 ){
                 Toast.makeText(Budget.this, "Please enter your budgeted Earnings and expense", Toast.LENGTH_SHORT).show();
             }else {
                 // add the budget information to  to database
-                BudgetB setBudget = budgetDA.saveBudgetInfo(year, month, inc, exp);
+                BudgetB setBudget = budgetDA.saveBudgetInfo(year, month,exp);
                 Toast.makeText(Budget.this, "Successfully Saved", Toast.LENGTH_SHORT).show();
                 budgetDA.close();
                 Intent i;

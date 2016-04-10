@@ -143,30 +143,6 @@
             android:layout_height="match_parent"
             android:minHeight="20dp"></TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Income"
-                android:id="@+id/textView14"
-                android:layout_column="0" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/income"
-                android:layout_column="1"
-                android:background="#ffc9faff"
-                android:minHeight="30dp"
-                android:textSize="25dp"
-                android:text="0" />
-        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"

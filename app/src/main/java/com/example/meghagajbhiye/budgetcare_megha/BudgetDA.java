@@ -44,11 +44,10 @@ public class BudgetDA {
         mDbHelper.close();
     }
 
-    public BudgetB saveBudgetInfo(int year,String month,float income,float expense) {
+    public BudgetB saveBudgetInfo(int year,String month,float expense) {
         ContentValues values = new ContentValues();
         values.put(DBHelper.COLUMN_YEAR, year);
         values.put(DBHelper.COLUMN_MONTH, month);
-        values.put(DBHelper.COLUMN_BUDGET_INCOME, income);
         values.put(DBHelper.COLUMN_BUDGET_EXPENSE, expense);
 
         long insertId = mDatabase.insert(DBHelper.TABLE_BUDGET, null, values);
