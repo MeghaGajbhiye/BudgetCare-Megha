@@ -23,7 +23,7 @@ public class AddCategory extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_category);
+        setContentView(R.layout.activity_category);
 
         typeSpinner = (Spinner) findViewById(R.id.typespinner);
         newCategoryText=(EditText) findViewById(R.id.newCategoryText);

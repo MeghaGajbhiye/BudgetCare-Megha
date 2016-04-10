@@ -61,7 +61,7 @@ public class BudgetDA {
 
 
 
-    public List<BudgetB> getAllBudgetInfo() {
+   /* public List<BudgetB> getAllBudgetInfo() {
         List<BudgetB> listBudgets = new ArrayList<BudgetB>();
 
         Cursor cursor = mDatabase.query(DBHelper.TABLE_BUDGET,
@@ -77,7 +77,7 @@ public class BudgetDA {
         cursor.close();
         return listBudgets;
     }
-
+*/
 
     private BudgetB cursorToBudget(Cursor cursor) {
         BudgetB budget = new BudgetB();

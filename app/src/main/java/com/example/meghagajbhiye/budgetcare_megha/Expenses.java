@@ -38,7 +38,7 @@ public class Expenses extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_expenditure);
+        setContentView(R.layout.activity_expenses);
 
         editDate = (EditText) findViewById(R.id.date);
         editDate.setText(DateToStr);

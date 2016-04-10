@@ -10,6 +10,7 @@ import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -18,8 +19,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 
 public class Earnings extends FragmentActivity {
@@ -51,6 +54,22 @@ public class Earnings extends FragmentActivity {
 
         this.transactionDA=new TransactionDA(this);
 
+        fillCategorySpinner();
+
+    }
+
+
+    private void fillCategorySpinner()
+
+    {
+        CategoryDA mCategoryDA = new CategoryDA(this);
+        ArrayList<Category> categoryList =(ArrayList) mCategoryDA.getAllCategories();
+
+
+        ArrayAdapter<Category> adapter = new ArrayAdapter<Category>(this,
+                android.R.layout.simple_spinner_item, categoryList);
+
+        categorySpinner.setAdapter(adapter);
     }
 
     //Method to show a new intent when a button is pressed
@@ -103,7 +122,7 @@ public class Earnings extends FragmentActivity {
 
         try {
             Editable date = editDate.getText();
-            String category = (String) categorySpinner.getSelectedItem();
+            Category category = (Category) categorySpinner.getSelectedItem();
             //Editable amount = (Float) amountText.getText();
             float amount = Float.valueOf(amountText.getText().toString());
             Editable notes = noteText.getText();
@@ -111,7 +130,7 @@ public class Earnings extends FragmentActivity {
                 Toast.makeText(Earnings.this, "Please enter the amount", Toast.LENGTH_SHORT).show();
             }else {
                 // add the transaction to database
-                Transaction createdTransaction = transactionDA.createTransaction(date.toString(), "Earnings", category, amount, notes.toString());
+                Transaction createdTransaction = transactionDA.createTransaction(date.toString(), "Earnings", category.getCategory(), amount, notes.toString());
                 Toast.makeText(Earnings.this, "Successfully Saved", Toast.LENGTH_SHORT).show();
                 transactionDA.close();
                 Intent i;
