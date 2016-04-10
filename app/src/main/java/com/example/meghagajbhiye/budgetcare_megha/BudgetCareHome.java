@@ -16,10 +16,10 @@ import java.util.List;
 
 public class BudgetCareHome extends ActionBarActivity {
 
-    Button inBut;
-    Button outBut;
-    ImageButton settingsButton;
-    ImageButton viewStatButton;
+    Button income;
+    Button expense;
+    ImageButton settings;
+    ImageButton status;
     private TransactionDA transactionDA;
     private TextView balanceText;
     ImageButton viewOverviewButton;
@@ -30,10 +30,10 @@ public class BudgetCareHome extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_budget_care_home);
-        inBut= (Button) findViewById(R.id.bIncome);
-       outBut= (Button) findViewById(R.id.bExpense);
-        settingsButton = (ImageButton) findViewById(R.id.settingsButton);
-        viewStatButton = (ImageButton) findViewById(R.id.chartsButton);
+        income = (Button) findViewById(R.id.bIncome);
+       expense = (Button) findViewById(R.id.bExpense);
+        settings = (ImageButton) findViewById(R.id.settingsButton);
+        status = (ImageButton) findViewById(R.id.chartsButton);
         viewOverviewButton = (ImageButton) findViewById(R.id.overviewButton);
         viewBudgetButton = (ImageButton) findViewById(R.id.budgetButton);
         balanceText = (TextView) findViewById(R.id.balance);
@@ -83,7 +83,7 @@ public class BudgetCareHome extends ActionBarActivity {
         @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_budget_manager_home, menu);
+        getMenuInflater().inflate(R.menu.menu_budget_care_home, menu);
         return true;
     }
 
@@ -105,7 +105,7 @@ public class BudgetCareHome extends ActionBarActivity {
     //Method to show table of transaction history
     private void CurrentBalance() {
 
-        float balanceAmount= (float) 0.0;
+        float currentBalance= (float) 0.0;
 
         List<Transaction> transactionList =new ArrayList<Transaction>();
         transactionList=transactionDA.getAllTransactions();
@@ -114,15 +114,15 @@ public class BudgetCareHome extends ActionBarActivity {
         // for loop to calculate balance amount
         for (int i = 0; i < length; i++) {
             if(transactionList.get(i).getIncomeorexpense().equalsIgnoreCase("Earnings")){
-                balanceAmount+=transactionList.get(i).getAmount();
+                currentBalance+=transactionList.get(i).getAmount();
             }
             else if(transactionList.get(i).getIncomeorexpense().equalsIgnoreCase("expense")){
-                balanceAmount-=transactionList.get(i).getAmount();
+                currentBalance-=transactionList.get(i).getAmount();
             }
 
         }
 
-        String textB=balanceAmount+"";
+        String textB=currentBalance+"";
         balanceText.setText(textB);
 
 

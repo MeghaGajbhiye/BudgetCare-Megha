@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 
 public class Budget extends ActionBarActivity {
-    private Spinner yearChooser;
-    private Spinner monthChooser;
-    private EditText income;
+    private Spinner year;
+    private Spinner month;
+    private EditText earnings;
     private EditText expense;
     private Button saveBtn;
     private BudgetDA budgetDA;
@@ -25,9 +25,9 @@ public class Budget extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_budget);
-        yearChooser = (Spinner) findViewById(R.id.year);
-        monthChooser = (Spinner) findViewById(R.id.month);
-        income =(EditText) findViewById(R.id.income);
+        year = (Spinner) findViewById(R.id.year);
+        month = (Spinner) findViewById(R.id.month);
+        earnings =(EditText) findViewById(R.id.income);
         expense = (EditText) findViewById(R.id.expense);
         saveBtn = (Button) findViewById(R.id.setBudget);
 
@@ -63,10 +63,10 @@ public class Budget extends ActionBarActivity {
     public void onClickSave(View v) {
 
         try {
-            int year = Integer.valueOf((String) yearChooser.getSelectedItem());
-            String month = (String) monthChooser.getSelectedItem();
-            float inc = Float.valueOf(income.getText().toString());
-            float exp = Float.valueOf(income.getText().toString());
+            int year = Integer.valueOf((String) this.year.getSelectedItem());
+            String month = (String) this.month.getSelectedItem();
+            float inc = Float.valueOf(earnings.getText().toString());
+            float exp = Float.valueOf(earnings.getText().toString());
 
             if(inc<=0 || exp<=0 ){
                 Toast.makeText(Budget.this, "Please enter your budgeted Earnings and expense", Toast.LENGTH_SHORT).show();
