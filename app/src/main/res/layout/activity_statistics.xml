@@ -44,9 +44,9 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageButton3"
+                android:id="@+id/IBstatistics1"
                 android:layout_column="0"
-                android:src="@drawable/piechartlarge"
+                android:src="@drawable/statistics1"
                 android:layout_span="0"
                 android:minWidth="400dp" />
 
